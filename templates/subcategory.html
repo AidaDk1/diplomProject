@@ -1,0 +1,31 @@
+{% extends 'homebase.html' %}
+{#{% load post_tags %}#}
+{% load static %}
+{% block content %}
+
+
+<div class="container">
+{#<h5>Total number of categories:{% counter_category %}</h5>#}
+
+<h1 class="h1">Categories</h1>
+    <div class="row" >
+        {% for cat in SubCategory %}
+            <div class="col-md-4" >
+            {% if cat.title %}
+                <img src="{{ cat.photo.url }}" alt="category image" height="200px">
+            {% endif %}
+                <a style="text-decoration: none" href="{% url 'productsview' cat.id %}">
+
+
+            <h1>{{ cat.title }}</h1>
+{#                <h1>{{ category.id }}</h1>#}
+                </a>
+{#                <a href="{% url 'shops_category' category.title category.id %}"><button>SubCategories</button></a>#}
+
+
+
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

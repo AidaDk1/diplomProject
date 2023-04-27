@@ -1,0 +1,22 @@
+{% extends 'homebase.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="container">
+
+<h1 class="h1">SubCategories</h1>
+    <div class="row" >
+        {% for subcat in SubCategory %}
+            <div class="col-md-4" >
+            {% if subcat.id %}
+                <img src="{{ subcat.photo.url }}" alt="category image" height="200px">
+            {% endif %}
+                <a style="text-decoration: none" href="{% url 'productsview' subcat.id %}">
+                    <h1>{{ subcat.title}}</h1>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

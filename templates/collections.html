@@ -1,0 +1,28 @@
+{% extends 'homebase.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="container">
+
+<h1 class="h1">Categories</h1>
+    <div class="row" >
+        {% for cat in Category %}
+            <div class="col-md-4" >
+            {% if cat.title %}
+                <img src="{{ cat.photo.url }}" alt="category image" height="200px">
+            {% endif %}
+                <a style="text-decoration: none" href="{% url 'subcategory' cat.title %}">
+
+
+            <h1>{{ cat.title }}</h1>
+
+                </a>
+
+
+
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
